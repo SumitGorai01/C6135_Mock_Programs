@@ -1,0 +1,183 @@
+/*
+ * Q1. Given an array of integers, write a Java program to find and 
+ *     print all the duplicate elements.
+ */
+package com.program;
+
+public class DublicateElementInArray {
+
+	/*
+	 * The main method is the entry point of the program. It initializes an array of
+	 * integers, and then use nested loops to find and print all duplicate elements
+	 * in the array. The duplicate element are identified by comparing each element
+	 * with every other element. IF a duplicate is found ,it is printed to the
+	 * console.
+	 */
+	public static void main(String[] args) {
+		// Initialize an array
+		int input[] = { 1, 2, 3, 5, 2, 4, 7, 3 };
+
+		System.out.println("Duplicate elements in array are : ");
+
+		for (int i = 0; i < input.length; i++) {
+			for (int j = i + 1; j < input.length; j++) {
+				/*
+				 * compare each and every elements and 
+				 * if duplicate element found then print them
+				 * 
+				 */				
+				if (input[i] == input[j]) {
+					System.out.println(input[i]);
+				}
+			}
+		}
+	}
+
+}
+
+/*
+ * Output :
+ * 
+ * Duplicate elements in array are : 
+ * 2
+ * 3
+ * 
+ */
+
+
+
+
+/*
+ * Q2. Write a Java function to check if two strings are anagrams of each other.
+ */
+package com.program;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class AnagramChecker {
+
+	public static void main(String[] args) {
+		/* 
+		 * Sample example for input
+		 * String str1 = "listen"; String str2 = "silent";
+		 * 
+		 */
+		
+		Scanner scanner=new Scanner(System.in);
+		
+		//Taking two string from user
+		System.out.println("Enter first string:");
+		String str1=scanner.next().toLowerCase();
+		
+		System.out.println("Enter second string:");
+		String str2=scanner.next().toLowerCase();
+
+
+		//Check if strings are anagram then print result 
+		if (isAnagram(str1, str2)) {
+			System.out.println(str1 + " and " + str2 + " are anagram.");
+		} else {
+			System.out.println(str1 + " and " + str2 + " are not anagram.");
+		}
+
+	}
+
+	//Method to check if two string are anagrams
+	static boolean isAnagram(String str1, String str2) {
+
+		//Check if the length of the strings are same
+		if (str1.length() != str2.length()) {
+			//if length are different then string cannot be anagram
+			return false;
+		}
+
+		// convert string to character array
+		char[] arr1 = str1.toCharArray();
+		char[] arr2 = str2.toCharArray();
+
+		// sort the character array
+		Arrays.sort(arr1);
+		Arrays.sort(arr2);
+
+		// compare the sorted array
+		boolean result = Arrays.equals(arr1, arr2);
+
+		return result;
+	}
+}
+
+/*
+ * Output :
+ * 
+ * case 1 :
+ * 
+ * Enter first string:
+ * listen
+ * Enter second string:
+ * silent
+ * listen and silent are anagram.
+ * 
+ * case 2 :
+ * 
+ * Enter first string:
+ * list
+ * Enter second string:
+ * silent
+ * list and silent are not anagram.
+ * 
+ * 
+ */
+
+
+/*
+ * Q3. Write a Java program to print a right-angled triangle of stars.
+ *     The number of rows should be taken as input.
+ */
+package com.program;
+
+import java.util.Scanner;
+
+public class RightAngleStar {
+
+	/*
+	 * The main method takes user input for the number of rows and Prints a
+	 * right-angled triangle pattern of stars.
+	 */
+	public static void main(String[] args) {
+
+		// Scanner for user input
+		Scanner scanner = new Scanner(System.in);
+
+		// Message to the user to enter the number of rows
+		System.out.println("Enter No. of rows : ");
+		int rows = scanner.nextInt();
+
+		// Print the right angled triangle pattern of star
+		System.out.println("Right-Angled Triangle Pattern of Star : ");
+
+		for (int i = 0; i < rows; i++) {
+			// Inner loop to print stars for each rows
+			for (int j = 0; j <= i; j++) {
+				System.out.print("* ");
+			}
+			// Move to next line after print each rows
+			System.out.println();
+		}
+
+	}
+
+}
+
+/*Output :-
+ * 
+ * 					Enter No. of rows : 
+ *					5
+ * 					Right-Angled Triangle Pattern of Star : 
+ * 					* 
+ * 					* * 
+ * 					* * * 
+ *					* * * * 
+ * 					* * * * * 
+ * 
+ */
